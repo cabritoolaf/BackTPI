@@ -53,7 +53,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local.
 
 1.  **Clona el repositorio:**
     ```sh
-    git clone [https://github.com/tu-usuario/BackTPI.git](https://github.com/tu-usuario/BackTPI.git)
+    git clone https://github.com/gabito1k6/BackTPI.git
     ```
 
 2.  **Seguir los pasos del siguiente notion para levantar API Gateway y jwt con contenedores:**
