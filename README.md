@@ -4,9 +4,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Estado-En%20Desarrollo-yellow" alt="Estado del Proyecto"/>
-  <img src="https://img.shields.io/github/languages/top/tu-usuario/BackTPI" alt="Lenguaje Principal"/>
-  <img src="https://img.shields.io/github/last-commit/tu-usuario/BackTPI" alt="Último Commit"/>
-  <img src="https://img.shields.io/github/license/tu-usuario/BackTPI" alt="Licencia"/>
+  <img src="https://img.shields.io/github/languages/top/gabito1k6/BackTPI" alt="Lenguaje Principal"/>
+  <img src="https://img.shields.io/github/last-commit/gabito1k6/BackTPI" alt="Último Commit"/>
+  <img src="https://img.shields.io/github/license/gabito1k6/BackTPI" alt="Licencia"/>
 </p>
 
 <p align="center">
