@@ -67,8 +67,8 @@ La documentación de los endpoints está disponible en el siguiente PDF.
 
 ## 👤 Autores
 
-**Agustin Dendarys**
-**Matias Degasperi**
+* **Agustin Dendarys**
+* **Matias Degasperi**
 
 
 ---
