@@ -1,0 +1,20 @@
+# Puerto para este microservicio
+server:
+  port: 8081
+
+spring:
+  # Configuración de Keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/tpi-logistica
+  
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=tpi-db;encrypt=false;trustServerCertificate=true
+    username: sa
+    password: '@gUt1n25!'
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
