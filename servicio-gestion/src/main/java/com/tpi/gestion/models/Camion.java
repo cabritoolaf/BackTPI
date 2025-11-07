@@ -4,6 +4,8 @@ import com.tpi.gestion.enums.EstadoCamion;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,16 +30,20 @@ public class Camion {
     @Column(name = "CAMION_ID")
     private long camionId;
 
+    @Column(name = "PATENTE")
+    private String patente;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CHOFER_ID", unique = true)
     private Chofer chofer;
 
     @Column(name = "CAPACIDAD_PESO")
-    private Double capacidad_peso;
+    private Double capacidadPeso;
 
     @Column(name = "CAPACIDAD_VOLUMEN")
-    private Double capacidad_volumen;
+    private Double capacidadVolumen;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "DISPONIBILIDAD")
     private EstadoCamion disponibilidad;
 
@@ -46,7 +52,4 @@ public class Camion {
 
     @Column(name = "CONSUMO")
     private Double consumo;
-
-
-
 }
