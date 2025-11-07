@@ -1,5 +1,8 @@
 package com.tpi.gestion.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -60,6 +63,55 @@ public class DepositoService {
             HttpStatus.NOT_FOUND,
             "El deposito con id '" + id + "' no existe."
         );
+    }
+
+    @Transactional
+    public DepositoResponseDTO actualizarDeposito(Long id, DepositoCreationDTO dto){
+        Deposito deposito_db = depositoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
+            HttpStatus.NOT_FOUND
+        ));
+        deposito_db.setNombre(dto.nombre());
+        deposito_db.setCosto_x_dia(dto.costo_x_dia());
+        deposito_db.setDireccion(dto.direccion());
+        deposito_db.setLatitud(dto.latitud());
+        deposito_db.setLongitud(dto.longitud());
+
+        Deposito depo = depositoRepository.save(deposito_db);
+
+        return this.mapToResponseDTO(depo);
+    }
+
+    public Page<DepositoResponseDTO> buscarDeposito(
+        String nombre, Double longitud, Double latitud, int page, int size
+    ){
+            Pageable pageable = PageRequest.of(page, size);
+
+            if(nombre != null && latitud != null && longitud != null){
+                return depositoRepository
+                .findByNombreContainingIgnoreCaseAndLatitudAndLongitud(nombre, latitud, longitud, pageable)
+                .map(this::mapToResponseDTO);
+            }else if (nombre != null){
+                return depositoRepository
+                .findByNombreContainingIgnoreCase(nombre, pageable)
+                .map(this::mapToResponseDTO);
+            } else if (latitud != null && longitud != null){
+                return depositoRepository
+                .findByLatitudAndLongitud(latitud,longitud, pageable)
+                .map(this::mapToResponseDTO);
+            } else{
+                return depositoRepository
+                .findAll(pageable)
+                .map(this::mapToResponseDTO);
+            }
+    }
+
+    public Page<DepositoResponseDTO> listarTodos(
+        int page, int size
+    ){
+        Pageable pageable = PageRequest.of(page, size);
+        return depositoRepository
+        .findAll(pageable)
+        .map(this::mapToResponseDTO);
     }
 
 }
