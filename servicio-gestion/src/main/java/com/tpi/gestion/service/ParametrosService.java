@@ -7,9 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.tpi.gestion.DTO.DepositoResponseDTO;
 import com.tpi.gestion.DTO.ParametroDTO;
-import com.tpi.gestion.DTO.TarifaCreationDTO;
 import com.tpi.gestion.models.Parametros;
 import com.tpi.gestion.repo.ParametrosRepository;
 
