@@ -2,6 +2,9 @@ server:
   port: 8081 # Puerto para este microservicio
 
 spring:
+  # profiles:
+    # active: local # Perfil activado
+
   # Configuración de Keycloak
   security:
     oauth2:

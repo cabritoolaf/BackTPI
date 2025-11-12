@@ -1,0 +1,13 @@
+spring:
+  # Configuración de Keycloak para correr en LOCAL
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Apunta a localhost
+          issuer-uri: http://localhost:8180/realms/tpi-logistica
+
+  # Configuración de la Base de Datos para correr en LOCAL
+  datasource:
+    # Apunta a localhost
+    url: jdbc:sqlserver://localhost:1433;databaseName=tpi-db;encrypt=false;trustServerCertificate=true;createDatabaseIfNotExist=true
